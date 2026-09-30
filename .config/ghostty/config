@@ -3,4 +3,12 @@ theme = TokyoNight Night
 font-family = "SauceCodePro NF"
 cursor-style = block
 
+# アニメーション処理の負荷を減らす設定試行
+cursor-style-blink = false
+
+
+
+
+
+
 command = /bin/sh -c 'trap "tmux kill-server" EXIT HUP INT TERM; tmux attach || tmux new-session'

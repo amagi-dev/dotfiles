@@ -12,5 +12,8 @@ if command -qv eza
     alias tree='eza --icons --tree'
 end
 
+
+alias rm='trash-put'
+
 # Created by `pipx` on 2026-09-29 04:01:43
 set PATH $PATH /home/amagi/.local/bin
