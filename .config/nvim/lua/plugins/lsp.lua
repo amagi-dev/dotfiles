@@ -6,7 +6,7 @@ return {
             formatters = {
                 clang_format = {
                     prepend_args = {
-                        "--style={BasedOnStyle: LLVM, NamespaceIndentation: All}",
+--                        "--style={BasedOnStyle: LLVM, NamespaceIndentation: All}",
                     },
                 },
             },

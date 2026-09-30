@@ -1,0 +1,6 @@
+
+theme = TokyoNight Night
+font-family = "SauceCodePro NF"
+cursor-style = block
+
+command = /bin/sh -c 'trap "tmux kill-server" EXIT HUP INT TERM; tmux attach || tmux new-session'
