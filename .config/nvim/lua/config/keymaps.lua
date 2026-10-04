@@ -47,8 +47,9 @@ vim.keymap.set("n", "<C-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buff
 vim.keymap.set("n", "<C-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
 
 ------------------------------------------------------------------
----
+--- Jump back to previous location
 ------------------------------------------------------------------
+vim.keymap.set('n', 'gD', '<C-o>', { noremap = true, silent = true, desc = 'Jump back to previous location' })
 
 ------------------------------------------------------------------
 
