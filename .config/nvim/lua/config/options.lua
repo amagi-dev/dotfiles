@@ -2,6 +2,7 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 -- 折り返しを無効化（wrap = false）
+
 vim.g.editorconfig = false
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
@@ -23,7 +24,6 @@ vim.opt.updatetime = 300 -- ハイライトの更新間隔（ミリ秒）
 vim.opt.timeoutlen = 100 -- 0.5秒待つ設定（デフォルトは1000ですが、プラグインで上書きされている場合があります）
 
 vim.opt.clipboard = ""
-
 
 vim.api.nvim_set_option_value("wrap", false, {}) -- 折り返しを無効化（wrap = false）
 
