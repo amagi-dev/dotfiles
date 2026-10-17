@@ -37,6 +37,9 @@ return {
                 enabled = false,
             },
             servers = {
+                gdscript = {},
+
+
 
                 marksman = {
                     diagnostics = {
