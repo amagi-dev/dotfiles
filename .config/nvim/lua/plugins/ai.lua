@@ -1,7 +1,4 @@
 return {
-    {
-        "github/copilot.vim",
-        init = function()
-        end,
-    },
+  -- LazyVim
+  { import = "lazyvim.plugins.extras.ai.copilot" },
 }

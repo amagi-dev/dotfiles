@@ -30,8 +30,8 @@ vim.keymap.set("n", "<Leader>pr", function()
 end, { desc = "Run: Run or Restart Task" })
 
 
-vim.keymap.set("n", "<Leader>pR", "<cmd>OverseerRun<cr>", { desc = "Run: Select New Task" }) -- Run a new task
-vim.keymap.set("n", "<Leader>pc", "<cmd>OverseerToggle<cr>", { desc = "Run: view Log" }) -- Toggle the overseer log window
+vim.keymap.set("n", "<Leader>pR", "<cmd>OverseerRun<cr>", { desc = "Run: Select New Task" })    -- Run a new task
+vim.keymap.set("n", "<Leader>pc", "<cmd>OverseerToggle<cr>", { desc = "Run: view Log" })        -- Toggle the overseer log window
 
 
 ------------------------------------------------------------------
@@ -49,9 +49,9 @@ vim.keymap.set("n", "<C-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buff
 ------------------------------------------------------------------
 --- Jump back to previous location
 ------------------------------------------------------------------
-vim.keymap.set('n', 'gD', '<C-o>', { noremap = true, silent = true, desc = 'Jump back to previous location' })
 
-------------------------------------------------------------------
+
+
 
 ------------------------------------------------------------------
 --- Buffer

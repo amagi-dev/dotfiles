@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- カーソルを停止した際に、自動で Diagnostic (エラー/警告) のホバーを表示
+-- auto hover
 vim.api.nvim_create_autocmd("CursorHold", {
   callback = function()
     local opts = {
@@ -37,22 +37,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     vim.cmd([[%s/\s\+$//e]])
     vim.fn.setpos(".", save_cursor)
   end,
-})
-
-
--- sesson
-vim.api.nvim_create_autocmd("VimEnter", {
-    group = vim.api.nvim_create_augroup("restore_session", { clear = true }),
-    callback = function()
-
-        if vim.fn.argc() == 0 or (vim.fn.argc() == 1 and vim.fn.isdirectory(".") == 1) then
-            vim.schedule(function()
-                local persistence = require("persistence")
-                persistence.setup()
-                persistence.load()
-            end)
-        end
-    end,
 })
 
 
