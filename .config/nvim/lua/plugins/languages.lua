@@ -20,29 +20,55 @@ return {
                     cb({
 
                         {
-                            name = "CMake: Generate & Build & Run",
+                            name = "CMake-Linux: Generate & Build & Run",
                             builder = function()
                                 return {
-                                    cmd = "cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug && cmake --build build -j --verbose && ./build/app",
+                                    cmd = "cmake -S . -B build/linux -G Ninja -DCMAKE_BUILD_TYPE=Debug && cmake --build build/linux -j --verbose && ./build/linux/app",
                                     components = { "default" },
                                 }
                             end,
                             condition = {
-                                filetype = { "cpp" },
+                                filetype = { "cpp","c" },
+                            },
+                        },
+
+                        {
+                            name = "CMake-Linux: Generate & Build",
+                            builder = function()
+                                return {
+                                    cmd = "cmake -S . -B build/linux -G Ninja -DCMAKE_BUILD_TYPE=Debug && cmake --build build/linux -j --verbose",
+                                    components = { "default" },
+                                }
+                            end,
+                            condition = {
+                                filetype = { "cpp","c"},
+                            },
+                        },
+
+                        {
+                            name = "CMake-WEB: Generate & Build & Run",
+                            builder = function()
+                                return {
+                                    cmd = "emcmake cmake . -DPLATFORM=Web -B build/web -G Ninja -DCMAKE_BUILD_TYPE=Debug && cmake --build build/web -j --verbose && emrun build/web/app.html",
+                                    components = { "default" },
+                                }
+                            end,
+                            condition = {
+                                filetype = { "cpp","c" },
                             },
                         },
 
 
                         {
-                            name = "CMake: Generate & Build",
+                            name = "CMake-WEB: Generate & Build",
                             builder = function()
                                 return {
-                                    cmd = "cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug && cmake --build build -j --verbose",
+                                    cmd = "emcmake cmake . -DPLATFORM=Web -B build/web -G Ninja -DCMAKE_BUILD_TYPE=Debug && cmake --build build/web -j --verbose",
                                     components = { "default" },
                                 }
                             end,
                             condition = {
-                                filetype = { "cpp" },
+                                filetype = { "cpp","c" },
                             },
                         },
 
