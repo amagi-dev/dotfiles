@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bmi3q6f8vwshk"]
+
+[ext_resource type="PackedScene" uid="uid://dbkaegn3lwfwt" path="res://models/floor.glb" id="1_se17s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e2o6t"]
+albedo_color = Color(0.16470589, 0.18431373, 0.20784314, 1)
+
+[node name="floor" unique_id=1241371912 instance=ExtResource("1_se17s")]
+
+[node name="floor" parent="." index="0" unique_id=56014159]
+material_override = SubResource("StandardMaterial3D_e2o6t")
+
+[node name="StaticBody3D" parent="floor" index="0" unique_id=1884020678]
+collision_layer = 0
+collision_mask = 0

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://djrw1wbt2c65m"]
+
+[ext_resource type="Script" uid="uid://qqt15iemyu2l" path="res://scripts/PlayerController.cs" id="1_72ieh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xas32"]
+radius = 0.4
+height = 1.7
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xas32"]
+radius = 0.4
+height = 1.7
+
+[node name="Player" type="CharacterBody3D" unique_id=919557923]
+collision_mask = 0
+wall_min_slide_angle = 1.0559242
+floor_max_angle = 1.7767452
+floor_snap_length = 0.4
+script = ExtResource("1_72ieh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=452754159]
+shape = SubResource("CapsuleShape3D_xas32")
+debug_fill = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=154238786]
+visible = false
+mesh = SubResource("CapsuleMesh_xas32")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=360517482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.67028326, -0.3212368)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=181284215]

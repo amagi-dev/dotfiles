@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b0xbj6uu2ytgc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_82dtb"]
+radius = 1.486
+height = 10.271
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ba640"]
+albedo_color = Color(0, 0.37, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_12mxi"]
+material = SubResource("StandardMaterial3D_ba640")
+size = Vector3(1, 8.725, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_buldn"]
+albedo_color = Color(0, 0.7490196, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u5nkt"]
+material = SubResource("StandardMaterial3D_buldn")
+size = Vector3(3, 4.7, 3)
+
+[node name="Tree_0" type="StaticBody3D" unique_id=952068787]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1485808012]
+shape = SubResource("CapsuleShape3D_82dtb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=644556682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.023264885, 0)
+mesh = SubResource("BoxMesh_12mxi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1252360161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.91024, 0)
+mesh = SubResource("BoxMesh_u5nkt")

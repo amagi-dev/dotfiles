@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://caf6t4d0fy3m6"]
+
+[ext_resource type="PackedScene" uid="uid://dhg0x7iiuimt7" path="res://models/room.glb" id="1_damlf"]
+[ext_resource type="Material" uid="uid://bgrrwnhhwgqom" path="res://materials/new_standard_material_3d.tres" id="2_yg100"]
+
+[node name="room" unique_id=525094893 instance=ExtResource("1_damlf")]
+
+[node name="Cube_001" parent="." index="0" unique_id=1695463424]
+material_override = ExtResource("2_yg100")
+
+[node name="Cube_001_002" parent="." index="2" unique_id=1874632240]
+transform = Transform3D(0, 23, 0, 0, 0, -1, -1, 0, 0, 192.56587, 48.875, -0.54999924)

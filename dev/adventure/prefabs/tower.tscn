@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dltxrfvdw1y0n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cvi6"]
+albedo_color = Color(0.44, 0.3297067, 0.23319998, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xas32"]
+material = SubResource("StandardMaterial3D_2cvi6")
+size = Vector3(8, 25, 8)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_54xuf"]
+data = PackedVector3Array(-4, 12.5, 4, 4, 12.5, 4, -4, -12.5, 4, 4, 12.5, 4, 4, -12.5, 4, -4, -12.5, 4, 4, 12.5, -4, -4, 12.5, -4, 4, -12.5, -4, -4, 12.5, -4, -4, -12.5, -4, 4, -12.5, -4, 4, 12.5, 4, 4, 12.5, -4, 4, -12.5, 4, 4, 12.5, -4, 4, -12.5, -4, 4, -12.5, 4, -4, 12.5, -4, -4, 12.5, 4, -4, -12.5, -4, -4, 12.5, 4, -4, -12.5, 4, -4, -12.5, -4, 4, 12.5, 4, -4, 12.5, 4, 4, 12.5, -4, -4, 12.5, 4, -4, 12.5, -4, 4, 12.5, -4, -4, -12.5, 4, 4, -12.5, 4, -4, -12.5, -4, 4, -12.5, 4, 4, -12.5, -4, -4, -12.5, -4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5nkt"]
+albedo_color = Color(1, 1, 0, 1)
+rim_enabled = true
+grow = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_2cvi6"]
+material = SubResource("StandardMaterial3D_u5nkt")
+size = Vector3(3, 3, 3)
+
+[node name="Tower" type="StaticBody3D" unique_id=530416947]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=261055299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = SubResource("BoxMesh_xas32")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=292193987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("ConcavePolygonShape3D_54xuf")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=795851667]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+mesh = SubResource("BoxMesh_2cvi6")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D2" unique_id=1524834607]
+shadow_enabled = true
+omni_range = 8.88
