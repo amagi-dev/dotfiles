@@ -1,8 +1,0 @@
-res://scripts/shaders/Ground.gdshader
-res://scripts/shaders/BluePrint.gdshader
-res://game.tscn
-res://prefabs/room.tscn
-res://prefabs/oil_lamp.tscn
-res://prefabs/player.tscn
-res://prefabs/hand_gun.tscn
-res://scripts/PlayerController.cs
