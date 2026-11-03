@@ -6,22 +6,32 @@ public partial class PlayerController : CharacterBody3D
 	[Export(PropertyHint.Range, "0.0.2,0.4,0.01")] public float mouseSensitivity = 0.04f;
 	[Export(PropertyHint.Range, "1.0f,15.0f,0.1f")] public float moveSpeed = 20.0f;
 
+	private Area3D interact;
 
-
-	private const float gravityForce = 9.8f;
+	private const float gravityForce = -9.8f;
 
 	private Node3D cameraPivot;
 	private Camera3D camera;
 
 	private float pitch = 0.0f;
 
+	private void AreaEntered(Node3D node)
+	{
+		GD.Print(node.Name);
+
+	}
+
 	public override void _Ready()
 	{
 		cameraPivot = GetNode<Node3D>("CameraPivot");
 		camera = cameraPivot.GetNode<Camera3D>("Camera3D");
-
 		Input.MouseMode = Input.MouseModeEnum.Captured;
+		interact = cameraPivot.GetNode<Area3D>("Interact");
+
+		interact.AreaEntered += AreaEntered;
 	}
+
+
 
 	public override void _Input(InputEvent @event)
 	{
@@ -62,6 +72,10 @@ public partial class PlayerController : CharacterBody3D
 		}
 	}
 
+	public override void _Process(double delta)
+	{
+
+	}
 	public override void _PhysicsProcess(double delta)
 	{
 
@@ -89,7 +103,10 @@ public partial class PlayerController : CharacterBody3D
 
 		direction = direction.Normalized();
 
-		Velocity = direction * new Vector3(moveSpeed,gravityForce,moveSpeed);
+		direction = direction * new Vector3(moveSpeed,gravityForce,moveSpeed);
+		direction.Y = gravityForce; // gravity
+
+		Velocity = direction;
 		MoveAndSlide();
 	}
 }

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c4juirilwausa"]
+
+[ext_resource type="PackedScene" uid="uid://bfu8pttogflcc" path="res://assets/hand_gun.glb" id="1_v3f4o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cihdl"]
+albedo_color = Color(0.45, 0.45, 0.45, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xas32"]
+size = Vector3(0.09442871, 0.04609375, 0.034643553)
+
+[node name="hand_gun" unique_id=1330532909 instance=ExtResource("1_v3f4o")]
+
+[node name="Plane" parent="." index="0" unique_id=2108457981]
+material_override = SubResource("StandardMaterial3D_cihdl")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=507411528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03481968, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=918226399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0022094734, -0.0031799339, 0.00023193657)
+shape = SubResource("BoxShape3D_xas32")

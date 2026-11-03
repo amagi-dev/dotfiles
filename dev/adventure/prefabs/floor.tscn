@@ -1,15 +1,20 @@
 [gd_scene format=3 uid="uid://bmi3q6f8vwshk"]
 
-[ext_resource type="PackedScene" uid="uid://dbkaegn3lwfwt" path="res://models/floor.glb" id="1_se17s"]
+[ext_resource type="Material" uid="uid://v7tj7sdttcf6" path="res://materials/floor.material" id="1_se17s"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e2o6t"]
-albedo_color = Color(0.16470589, 0.18431373, 0.20784314, 1)
+[sub_resource type="BoxMesh" id="BoxMesh_xas32"]
+material = ExtResource("1_se17s")
+size = Vector3(4, 0.1, 10)
 
-[node name="floor" unique_id=1241371912 instance=ExtResource("1_se17s")]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tu3cu"]
+data = PackedVector3Array(-2, 0.0425, 5, 2, 0.0425, 5, -2, -0.0425, 5, 2, 0.0425, 5, 2, -0.0425, 5, -2, -0.0425, 5, 2, 0.0425, -5, -2, 0.0425, -5, 2, -0.0425, -5, -2, 0.0425, -5, -2, -0.0425, -5, 2, -0.0425, -5, 2, 0.0425, 5, 2, 0.0425, -5, 2, -0.0425, 5, 2, 0.0425, -5, 2, -0.0425, -5, 2, -0.0425, 5, -2, 0.0425, -5, -2, 0.0425, 5, -2, -0.0425, -5, -2, 0.0425, 5, -2, -0.0425, 5, -2, -0.0425, -5, 2, 0.0425, 5, -2, 0.0425, 5, 2, 0.0425, -5, -2, 0.0425, 5, -2, 0.0425, -5, 2, 0.0425, -5, -2, -0.0425, 5, 2, -0.0425, 5, -2, -0.0425, -5, 2, -0.0425, 5, 2, -0.0425, -5, -2, -0.0425, -5)
 
-[node name="floor" parent="." index="0" unique_id=56014159]
-material_override = SubResource("StandardMaterial3D_e2o6t")
+[node name="Floor" type="Node3D" unique_id=699663707]
 
-[node name="StaticBody3D" parent="floor" index="0" unique_id=1884020678]
-collision_layer = 0
-collision_mask = 0
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1386930534]
+mesh = SubResource("BoxMesh_xas32")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2107947485]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=907252639]
+shape = SubResource("ConcavePolygonShape3D_tu3cu")

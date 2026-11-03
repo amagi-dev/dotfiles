@@ -1,21 +1,21 @@
 [gd_scene format=3 uid="uid://dr35oblclmwo6"]
 
 [ext_resource type="PackedScene" uid="uid://djrw1wbt2c65m" path="res://prefabs/player.tscn" id="1_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://caf6t4d0fy3m6" path="res://prefabs/room.tscn" id="3_feb5d"]
-[ext_resource type="Texture2D" uid="uid://6gsiu5s6n07j" path="res://assets/sbs_-_tiny_texture_pack_-_256x256/256x256/Grass/Grass 5 - 256x256.png" id="4_7jktm"]
+[ext_resource type="PackedScene" uid="uid://caf6t4d0fy3m6" path="res://prefabs/room.tscn" id="2_e2o6t"]
 
 [sub_resource type="Environment" id="Environment_feb5d"]
-background_energy_multiplier = 0.0
+background_energy_multiplier = 0.3
 ambient_light_energy = 0.0
+fog_light_energy = 0.05
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_emission_energy = 677.88
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jktm"]
-albedo_texture = ExtResource("4_7jktm")
-metallic_specular = 0.0
-roughness = 0.57
-uv1_scale = Vector3(-64.975, -64.975, -64.975)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72ieh"]
+albedo_color = Color(0, 0.5529412, 0, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xas32"]
-material = SubResource("StandardMaterial3D_7jktm")
+material = SubResource("StandardMaterial3D_72ieh")
 size = Vector2(1000, 1000)
 subdivide_width = 100
 subdivide_depth = 100
@@ -25,26 +25,18 @@ size = Vector3(1000, 1, 1000)
 
 [node name="Node3D" type="Node3D" unique_id=2105587445]
 
-[node name="Player" parent="." unique_id=919557923 instance=ExtResource("1_e2o6t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.279205, 0.56556845, -0.14766788)
-mouseSensitivity = 0.1
-moveSpeed = 6.969
-
 [node name="Node3D" type="Node3D" parent="." unique_id=332888894]
-
-[node name="DirectionalLight" type="DirectionalLight3D" parent="." unique_id=376215299]
-transform = Transform3D(1, 0, 0, 0, 0.9851093, 0.17192909, 0, -0.17192909, 0.9851093, 0, 583.1629, 0)
-light_energy = 0.091
-shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1666682123]
 environment = SubResource("Environment_feb5d")
 
 [node name="Debug" type="DirectionalLight3D" parent="." unique_id=847020578]
-transform = Transform3D(1, 0, 0, 0, 0.73372984, 0.67944133, 0, -0.67944133, 0.73372984, 0, 117.142685, 145.01949)
-light_energy = 1.583
+transform = Transform3D(1, 0, 0, 0, 0.8894164, 0.45709795, 0, -0.45709795, 0.8894164, 0, 5.342682, 7.619484)
 shadow_enabled = true
-directional_shadow_max_distance = 2844.0
+shadow_bias = 0.072
+shadow_normal_bias = 0.573
+directional_shadow_max_distance = 83.9
+sky_mode = 1
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=579964923]
 collision_layer = 3
@@ -56,6 +48,26 @@ mesh = SubResource("PlaneMesh_xas32")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1657540354]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_xas32")
+debug_fill = false
 
-[node name="room" parent="Ground" unique_id=525094893 instance=ExtResource("3_feb5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.20154, 0.025001526, 9.130341)
+[node name="Area" type="Node" parent="." unique_id=2037581987]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1175928539]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 19, 65, 266.40002)
+visible = false
+light_color = Color(0.48439813, 0.4843982, 0.48439813, 1)
+light_energy = 6.608
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_normal_bias = 2.408
+spot_range = 4096.0
+spot_attenuation = 0.0
+spot_angle = 68.08
+
+[node name="Player" parent="." unique_id=919557923 instance=ExtResource("1_e2o6t")]
+transform = Transform3D(1, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, 1, -0.3340938, 1.1895909, 9.091301)
+mouseSensitivity = 0.06
+moveSpeed = 2.406
+
+[node name="Node3D2" parent="." unique_id=2078982135 instance=ExtResource("2_e2o6t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4595337, 0.35000014, 5.6779785)

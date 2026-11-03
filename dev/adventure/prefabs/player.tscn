@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://djrw1wbt2c65m"]
 
 [ext_resource type="Script" uid="uid://qqt15iemyu2l" path="res://scripts/PlayerController.cs" id="1_72ieh"]
+[ext_resource type="Texture2D" uid="uid://clgnc5yc0dsis" path="res://assets/lens.png" id="2_4dohe"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xas32"]
 radius = 0.4
@@ -10,22 +11,43 @@ height = 1.7
 radius = 0.4
 height = 1.7
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xas32"]
+height = 1.854248
+radius = 0.12695313
+
 [node name="Player" type="CharacterBody3D" unique_id=919557923]
-collision_mask = 0
 wall_min_slide_angle = 1.0559242
 floor_max_angle = 1.7767452
 floor_snap_length = 0.4
 script = ExtResource("1_72ieh")
+moveSpeed = 7.263
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=452754159]
 shape = SubResource("CapsuleShape3D_xas32")
 debug_fill = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=154238786]
-visible = false
+cast_shadow = 0
 mesh = SubResource("CapsuleMesh_xas32")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=360517482]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.67028326, -0.3212368)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=181284215]
+near = 0.001
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CameraPivot" unique_id=656695746]
+transform = Transform3D(0.9998852, 4.802142e-11, -0.015153937, -0.0005630035, 0.99930966, -0.037148025, 0.015143475, 0.037152283, 0.99919486, -0.34609032, -0.29967022, 0)
+light_energy = 0.488
+light_projector = ExtResource("2_4dohe")
+light_size = 0.147
+shadow_enabled = true
+spot_range = 9.533
+spot_attenuation = -0.02
+spot_angle = 52.33
+
+[node name="Interact" type="Area3D" parent="CameraPivot" unique_id=1594245554]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraPivot/Interact" unique_id=270842050]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, -0.6544189)
+shape = SubResource("CylinderShape3D_xas32")
